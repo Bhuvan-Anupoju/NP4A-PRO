@@ -4,5 +4,5 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ["**/*.jpg", "**/*.png", "**/*.jpeg"],
-  base: "/NP4A-PRO",
+  base: "/NP4A-PRO/",
 });
