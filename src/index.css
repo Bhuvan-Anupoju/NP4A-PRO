@@ -20,14 +20,31 @@
 
 html {
   scroll-behavior: auto; /* Lenis handles this */
+  overflow-x: hidden;
 }
 
 body {
+  min-height: 100vh;
+  width: 100%;
   background: #000;
   color: #fff;
   font-family: "Space Grotesk", "Inter", sans-serif;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
   cursor: default;
+}
+
+#root,
+main {
+  min-width: 100%;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+canvas {
+  max-width: 100%;
+  display: block;
 }
 
 /* Hide default scrollbar */

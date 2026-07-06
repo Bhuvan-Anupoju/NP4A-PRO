@@ -93,11 +93,13 @@ export default function Hero() {
     let drawW, drawH, drawX, drawY;
 
     if (cw < 768) {
-      // Mobile — fill height, center
+      // Mobile — fill height, center the phone then move the frame right a bit
       drawH = ch;
       drawW = ch * imgAspect;
-      drawX = (cw - drawW) / 2;
       drawY = 0;
+      const centerX = (cw - drawW) / 2;
+      const shiftX = cw * 0.08;
+      drawX = centerX + shiftX;
     } else {
       // Desktop — fill height, push right
       drawH = ch;
@@ -165,7 +167,6 @@ export default function Hero() {
 
   /* ── ScrollTrigger ── */
   useEffect(() => {
-    if (!allReady) return;
     const ctx = gsap.context(() => {
       gsap.to(frameProxy.current, {
         value: 1,
@@ -175,6 +176,9 @@ export default function Hero() {
           start: "top top",
           end: "bottom bottom",
           scrub: 0.8,
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
           onUpdate: (self) => {
             targetFrame.current = self.progress;
           },
@@ -186,7 +190,7 @@ export default function Hero() {
       ctx.revert();
       cancelAnimationFrame(rafRef.current);
     };
-  }, [allReady, renderLoop]);
+  }, [renderLoop]);
 
   // Average load progress across all 3
   const loadPct = Math.round(((prog.black + prog.white + prog.pink) / 3) * 100);
