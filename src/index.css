@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,8 +8,8 @@
   --nothing-card: #111111;
   --nothing-accent: #ffffff;
   --nothing-secondary: #888888;
-  --nothing-pink: #F3C5D7;
-  --nothing-red: #FF3B30;
+  --nothing-pink: #f3c5d7;
+  --nothing-red: #ff3b30;
 }
 
 * {
@@ -25,9 +25,9 @@ html {
 body {
   background: #000;
   color: #fff;
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: "Space Grotesk", "Inter", sans-serif;
   overflow-x: hidden;
-  cursor: none;
+  cursor: default;
 }
 
 /* Hide default scrollbar */
@@ -37,51 +37,13 @@ body {
 
 /* Noise texture overlay */
 body::before {
-  content: '';
+  content: "";
   position: fixed;
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9999;
   opacity: 0.35;
-}
-
-/* Custom cursor */
-.cursor {
-  position: fixed;
-  width: 12px;
-  height: 12px;
-  background: #fff;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease, background 0.3s ease;
-  mix-blend-mode: difference;
-}
-
-.cursor-follower {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255,255,255,0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-}
-
-.cursor.hover {
-  width: 20px;
-  height: 20px;
-  background: var(--nothing-pink);
-}
-
-.cursor-follower.hover {
-  width: 60px;
-  height: 60px;
-  opacity: 0.5;
 }
 
 /* Glassmorphism utility */
@@ -104,7 +66,7 @@ body::before {
 }
 
 .gradient-text-pink {
-  background: linear-gradient(135deg, #fff 0%, #F3C5D7 100%);
+  background: linear-gradient(135deg, #fff 0%, #f3c5d7 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -115,11 +77,15 @@ body::before {
 
 /* Glow effects */
 .glow-white {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1), 0 0 80px rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 0 40px rgba(255, 255, 255, 0.1),
+    0 0 80px rgba(255, 255, 255, 0.05);
 }
 
 .glow-pink {
-  box-shadow: 0 0 40px rgba(243, 197, 215, 0.2), 0 0 80px rgba(243, 197, 215, 0.1);
+  box-shadow:
+    0 0 40px rgba(243, 197, 215, 0.2),
+    0 0 80px rgba(243, 197, 215, 0.1);
 }
 
 /* ── Card stacking sections ──────────────────────────────
@@ -140,7 +106,7 @@ body::before {
 
 /* Dot-matrix / Nothing signature font */
 .font-dotmatrix {
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   letter-spacing: 0.08em;
 }
 
@@ -165,15 +131,18 @@ body::before {
 
 /* Feature card hover */
 .feature-card {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              border-color 0.4s ease,
-              box-shadow 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .feature-card:hover {
   transform: translateY(-8px);
   border-color: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(243, 197, 215, 0.05);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(243, 197, 215, 0.05);
 }
 
 /* Spec row animation */
@@ -198,10 +167,14 @@ body::before {
 }
 
 .btn-primary::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(243, 197, 215, 0.3) 100%);
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(243, 197, 215, 0.3) 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -232,26 +205,45 @@ body::before {
 
 /* Light sweep animation */
 @keyframes lightSweep {
-  0% { transform: translateX(-100%) skewX(-15deg); }
-  100% { transform: translateX(300%) skewX(-15deg); }
+  0% {
+    transform: translateX(-100%) skewX(-15deg);
+  }
+  100% {
+    transform: translateX(300%) skewX(-15deg);
+  }
 }
 
 .light-sweep::after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 40%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
   animation: lightSweep 3s ease-in-out infinite;
 }
 
 /* Floating particles */
 @keyframes particleFloat {
-  0%, 100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.3; }
-  33% { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.6; }
-  66% { transform: translateY(-15px) translateX(-10px) scale(0.9); opacity: 0.4; }
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translateY(-30px) translateX(15px) scale(1.1);
+    opacity: 0.6;
+  }
+  66% {
+    transform: translateY(-15px) translateX(-10px) scale(0.9);
+    opacity: 0.4;
+  }
 }
 
 .particle {

@@ -8,6 +8,8 @@ const STORAGE_OPTIONS = [
   { storage: "256GB", ram: "12GB", price: "₹55,999" },
 ];
 
+const BASE_URL = import.meta.env.BASE_URL || "/";
+
 const DISPLAY_STORAGE_OPTIONS = STORAGE_OPTIONS.filter(
   (option, index, array) =>
     index ===
@@ -53,9 +55,24 @@ const VARIANT_URLS = {
 };
 
 const COLOR_OPTIONS = [
-  { id: "black", label: "Black", swatch: "#2a2a2a", image: "/black.png" },
-  { id: "white", label: "White", swatch: "#e8e8e8", image: "/white.png" },
-  { id: "pink", label: "Pink", swatch: "#F3C5D7", image: "/pink.png" },
+  {
+    id: "black",
+    label: "Black",
+    swatch: "#2a2a2a",
+    image: `${BASE_URL}black.png`,
+  },
+  {
+    id: "white",
+    label: "White",
+    swatch: "#e8e8e8",
+    image: `${BASE_URL}white.png`,
+  },
+  {
+    id: "pink",
+    label: "Pink",
+    swatch: "#F3C5D7",
+    image: `${BASE_URL}pink.png`,
+  },
 ];
 
 const PERKS = [

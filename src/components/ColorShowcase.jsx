@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+const BASE_URL = import.meta.env.BASE_URL || "/";
+
 const COLORS = [
   {
     id: "black",
@@ -11,7 +13,7 @@ const COLORS = [
     glow: "rgba(255,255,255,0.07)",
     accent: "#ffffff",
     desc: "Matte black finish with a subtle texture that absorbs light.",
-    img: "/black.png",
+    img: `${BASE_URL}black.png`,
   },
   {
     id: "white",
@@ -21,7 +23,7 @@ const COLORS = [
     glow: "rgba(255,255,255,0.12)",
     accent: "#ffffff",
     desc: "Clean white with a frosted glass-like translucency.",
-    img: "/white.png",
+    img: `${BASE_URL}white.png`,
   },
   {
     id: "pink",
@@ -31,7 +33,7 @@ const COLORS = [
     glow: "rgba(243,197,215,0.16)",
     accent: "#F3C5D7",
     desc: "Soft blush tone — bold enough to stand out, refined enough to stay elegant.",
-    img: "/pink.png",
+    img: `${BASE_URL}pink.png`,
   },
 ];
 

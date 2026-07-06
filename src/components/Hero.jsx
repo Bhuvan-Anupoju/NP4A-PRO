@@ -4,12 +4,13 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
+const BASE_URL = import.meta.env.BASE_URL || "/";
 
 const VARIANTS = [
   {
     key: "black",
     label: "Black",
-    folder: "/frames",
+    folder: `${BASE_URL}frames`,
     total: 175,
     swatch: "#2a2a2a",
     swatchBorder: "rgba(255,255,255,0.2)",
@@ -17,7 +18,7 @@ const VARIANTS = [
   {
     key: "white",
     label: "White",
-    folder: "/whiteFrames",
+    folder: `${BASE_URL}whiteFrames`,
     total: 175,
     swatch: "#e8e8e8",
     swatchBorder: "rgba(0,0,0,0.15)",
@@ -25,7 +26,7 @@ const VARIANTS = [
   {
     key: "pink",
     label: "Pink",
-    folder: "/pinkFrames",
+    folder: `${BASE_URL}pinkFrames`,
     total: 200,
     swatch: "#F3C5D7",
     swatchBorder: "rgba(243,197,215,0.4)",

@@ -1,24 +1,20 @@
-import { useLenis } from './hooks/useLenis'
-import { useMouseSpotlight } from './hooks/useMouseSpotlight'
-import Navbar from './components/Navbar'
-import FloatingParticles from './components/FloatingParticles'
-import ScrollProgress from './components/ScrollProgress'
-import HeroSection from './sections/HeroSection'
-import ColorShowcase from './components/ColorShowcase'
-import FeaturesSection from './sections/FeaturesSection'
-import Specs from './components/Specs'
-import MarqueeBanner from './components/MarqueeBanner'
-import PricingSection from './sections/PricingSection'
-import Footer from './components/Footer'
+import { useLenis } from "./hooks/useLenis";
+import Navbar from "./components/Navbar";
+import FloatingParticles from "./components/FloatingParticles";
+import ScrollProgress from "./components/ScrollProgress";
+import HeroSection from "./sections/HeroSection";
+import ColorShowcase from "./components/ColorShowcase";
+import FeaturesSection from "./sections/FeaturesSection";
+import Specs from "./components/Specs";
+import MarqueeBanner from "./components/MarqueeBanner";
+import PricingSection from "./sections/PricingSection";
+import Footer from "./components/Footer";
 
 export default function App() {
-  useLenis()
-  const { cursorRef, followerRef } = useMouseSpotlight()
+  useLenis();
 
   return (
     <>
-      <div ref={cursorRef} className="cursor" />
-      <div ref={followerRef} className="cursor-follower" />
       <FloatingParticles count={18} />
       <ScrollProgress />
       <Navbar />
@@ -33,5 +29,5 @@ export default function App() {
         <Footer />
       </main>
     </>
-  )
+  );
 }
